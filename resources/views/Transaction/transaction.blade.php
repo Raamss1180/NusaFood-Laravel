@@ -59,7 +59,7 @@
         </nav>
         <div class="home-content">
             <h3>Transaction</h3>
-            <a href="transaction-cetak.php" class="btn-cetak">Cetak</a>
+            <a href="transaction-cetak" class="btn-cetak">Cetak</a>
             <table class="table-data">
                 <thead>
                     <tr>

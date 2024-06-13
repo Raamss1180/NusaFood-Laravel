@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Menu;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class TransactionController extends Controller
 {
@@ -96,5 +97,12 @@ class TransactionController extends Controller
         $transaction->delete();
 
         return redirect('/transaction')->with('success', 'Transaksi berhasil dihapus!');
+    }
+    public function downloadpdf()
+    {
+    $transaction = Transaction::all();
+        $pdf = 'PDF'::loadview('Transaction.transaction-cetak',compact('transaction'));
+        $pdf->setPaper('A4','portrait');
+        return $pdf->stream('Data-pembeli.pdf');
     }
 }
