@@ -13,7 +13,7 @@ class Transaction extends Model
     public $incrementing = true;
     protected $fillable = ['nama', 'alamat', 'no_hp', 'menu_id', 'jumlah', 'harga', 'status'];
     
-    public function menu()
+    public function tbmenu() 
     {
         return $this->belongsTo(Menu::class, 'menu_id', 'id_menu');
     }

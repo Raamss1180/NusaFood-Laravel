@@ -56,4 +56,4 @@ Route::post('/transaction-proses', [TransactionController::class, 'store'])->nam
 Route::get('/transaction-edit/{id}', [TransactionController::class, 'edit']);
 Route::put('/transaction-update/{id}', [TransactionController::class, 'update'])->name('transaction.update');
 Route::get('/transaction-hapus/{id}', [TransactionController::class, 'destroy']);
-Route::get('/transaction/cetak', [TransactionController::class, 'downloadpdf']);
+Route::get('/transaction-cetak', [TransactionController::class, 'downloadpdf']);

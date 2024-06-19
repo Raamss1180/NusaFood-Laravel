@@ -2,35 +2,40 @@
 <html>
     <head>
         <style>
-            #customers {
-            font-family: Arial, Helvetica, sans-serif;
+        body {
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            box-sizing: border-box;
+            border: 2px solid black;
             border-collapse: collapse;
             width: 100%;
-            }
-
-            #customers td, #customers th {
-            border: 1px solid #ddd;
-            padding: 8px;
-            }
-
-            #customers tr:nth-child(even){background-color: #f2f2f2;}
-
-            #customers tr:hover {background-color: #ddd;}
-
-            #customers th {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-            background-color: #1d528a;
+        }
+        thead {
+            background-color: #0d47a1;
             color: white;
-            }
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            text-align: left;
+            padding: 10px;
+        }
+        .center {
+            text-align: center;
+        }
         </style>
     </head>
     <body>
     <center>
         <h3>laporan data pembelian</h3>
     </center>
-    <table id="customers">
+    <table align="center">
         <tr>
             <th>No</th>
             <th>Nama</th>
@@ -46,9 +51,9 @@
             <td>{{ $loop->iteration }}</td>
             <td>{{ $data->nama}}</td>
             <td>{{ $data->alamat }}</td>
-            <td>{{ $data->tbmenu->menu}}</td>
+            <td>{{ optional($data->tbmenu)->menu }}</td>
             <td>{{ $data->jumlah }}</td>
-            <td>{{ number_format($transaction->harga) }}</td>
+            <td>Rp. {{ number_format($data->harga) }}</td>
             <td>{{ $data->no_hp }}</td>
             <td>{{ $data->updated_at }}</td>
         </tr>

@@ -100,9 +100,9 @@ class TransactionController extends Controller
     }
     public function downloadpdf()
     {
-    $transaction = Transaction::all();
-        $pdf = 'PDF'::loadview('Transaction.transaction-cetak',compact('transaction'));
-        $pdf->setPaper('A4','portrait');
-        return $pdf->stream('Data-pembeli.pdf');
+    $transaction = Transaction::with('tbmenu')->get();
+    $pdf = PDF::loadview('Transaction.transaction-cetak', compact('transaction'));
+    $pdf->setPaper('A4', 'portrait');
+    return $pdf->stream('Data-pembeli.pdf');
     }
 }
